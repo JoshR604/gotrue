@@ -6,8 +6,15 @@ help: ## Show this help.
 
 all: lint vet test build ## Run the tests and build the binary.
 
-build: ## Build the binary.
-	go build -ldflags "-X github.com/netlify/gotrue/cmd.Version=`git rev-parse HEAD`"
+os = darwin
+arch = amd64
+
+build:
+        @echo "Making gotrue for $(os)/$(arch)"
+        GOOS=$(os) GOARCH=$(arch) go build -ldflags "-X github.com/netlify/gotrue/cmd.Version=`git rev-parse HEAD`"
+
+build_linux: override os=linux
+build_linux: build
 
 deps: ## Install dependencies.
 	@go get -u github.com/gobuffalo/pop/soda
