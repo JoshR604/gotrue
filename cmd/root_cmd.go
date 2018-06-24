@@ -27,11 +27,11 @@ func RootCommand() *cobra.Command {
 func execWithConfig(cmd *cobra.Command, fn func(globalConfig *conf.GlobalConfiguration, config *conf.Configuration)) {
 	globalConfig, err := conf.LoadGlobal(configFile)
 	if err != nil {
-		logrus.Fatalf("Failed to load configuration: %+v", err)
+		logrus.Fatalf("Failed to load configuration1: %+v", err)
 	}
 	config, err := conf.LoadConfig(configFile)
 	if err != nil {
-		logrus.Fatalf("Failed to load configuration: %+v", err)
+		logrus.Fatalf("Failed to load configuration2: %+v", err)
 	}
 
 	fn(globalConfig, config)

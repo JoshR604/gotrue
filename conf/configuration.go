@@ -28,7 +28,7 @@ type EmailProviderConfiguration struct {
 // DBConfiguration holds all the database related configuration.
 type DBConfiguration struct {
 	Driver         string `json:"driver" required:"true"`
-	URL            string `json:"url" envconfig:"DATABASE_URL" required:"true"`
+	URL            string `json:"url" envconfig:"GOTRUE_DATABASE_URL" required:"true"`
 	Namespace      string `json:"namespace"`
 	MigrationsPath string `json:"migrations_path" split_words:"true" default:"./migrations"`
 }
