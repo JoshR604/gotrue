@@ -46,7 +46,7 @@ type JWTConfiguration struct {
 type GlobalConfiguration struct {
 	API struct {
 		Host            string
-		Port            int `envconfig:"PORT" default:"8081"`
+		Port            int `envconfig:"GOTRUE_PORT" default:"8081"`
 		Endpoint        string
 		RequestIDHeader string `envconfig:"REQUEST_ID_HEADER"`
 	}
